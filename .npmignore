@@ -1,0 +1,9 @@
+.git/
+__tests__/
+coverage/
+node_modules/
+src/
+.gitignore
+.npmignore
+babel.config.js
+jest.config.js

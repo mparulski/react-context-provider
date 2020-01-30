@@ -1,26 +1,14 @@
 import React from 'react'
 
-const execCbs = (state, cbs) => {
-  cbs.map(cb => cb(state))
-}
-
-
-
-export default (middleware) => {
+export default () => {
   const StateContext = React.createContext()
   const DispatchContext = React.createContext()
 
   const ContextProvider = ({children = null, reducer = (state) => state, initialValue = {}, cbs = []}) => {
     const [state, setState] = React.useState(initialValue)
 
-    React.useEffect(() => {
-      execCbs(state, [...cbs])
-    }, [JSON.stringify(state)])
-
     const dispatch = (action) => {
-      let computedState = reducer(state, action)
-
-      computedState = middleware(computedState, action, state)
+      const computedState = reducer(state, action)
 
       setState(computedState)
     }

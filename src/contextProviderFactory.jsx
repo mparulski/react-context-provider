@@ -62,6 +62,6 @@ export default () => {
 const execCallOnChangeCallbacks = (state, ...callbacks) => {
   callbacks.map(cb => {
     const clonedState = _.clone(state)
-    cb(state)
+    cb(clonedState)
   })
 }

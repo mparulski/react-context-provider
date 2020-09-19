@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 
-export default () => {
+const getContextProvider = () => {
   const StateContext = React.createContext()
   const DispatchContext = React.createContext()
 
@@ -65,3 +65,5 @@ const execCallOnChangeCallbacks = (state, ...callbacks) => {
     cb(clonedState)
   })
 }
+
+export default getContextProvider
